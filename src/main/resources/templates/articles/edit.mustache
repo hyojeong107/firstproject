@@ -1,0 +1,25 @@
+{{>layouts/header}}
+{{#article}}
+<form class="container" action="/articles/update" method="post" >
+    <!--글 번호가 입력-->
+    <!--화면상엔 안보이지만 아이디 값을 넘겨줘야 한다 -->
+    <input name="id" type="hidden" value="{{id}}">
+    <div class="mb-3"> <!--mb-3: 여백을 3만큼 줌-->
+        <label class="form-label">제목</label> <!--label:input앞에 글자를 넣어줌-->
+        <input class="form-control"
+               type="text" name="title"
+               value="{{title}}"
+        >
+        <!--타이틀이 db에서 컬러명--> <!--제목--> <!--form-controll: 박스 길이 길어짐-->
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea class="form-control" row="3" name="content">{{content}}</textarea> <!--내용-->
+    </div>
+
+    <button class="btn btn-primary" type="submit">등록</button> <!--btn-primary:버튼에 파란색-->
+    <a href="/articles/{{id}}">상세</a>
+</form>
+{{/article}}
+
+{{>layouts/footer}}
